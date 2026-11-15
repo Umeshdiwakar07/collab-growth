@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with {{ other_user.name }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans h-screen flex flex-col">
+
+    <nav class="bg-white shadow-sm px-6 py-4 flex items-center gap-4">
+        <a href="/dashboard" class="text-gray-500 hover:text-blue-600 font-bold p-2 bg-gray-100 rounded-full">&larr; Back</a>
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                {{ other_user.name[0] | upper }}
+            </div>
+            <div>
+                <h2 class="text-xl font-bold text-gray-800">{{ other_user.name }}</h2>
+                <p class="text-xs text-green-500 font-semibold flex items-center gap-1">
+                    <span class="w-2 h-2 bg-green-500 rounded-full inline-block"></span> Online
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex-1 overflow-y-auto p-6 flex flex-col gap-4 max-w-4xl mx-auto w-full" id="chat-box">
+        {% for msg in chat_history %}
+            {% if msg.sender_id == my_id %}
+                <div class="self-end max-w-[75%]">
+                    <div class="bg-blue-600 text-white p-4 rounded-2xl rounded-br-none shadow-sm">
+                        <p class="text-sm">{{ msg.content }}</p>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-1 text-right">{{ msg.timestamp.strftime('%H:%M') if msg.timestamp else '' }}</p>
+                </div>
+            {% else %}
+                <div class="self-start max-w-[75%]">
+                    <div class="bg-white text-gray-800 p-4 rounded-2xl rounded-bl-none shadow-sm border border-gray-100">
+                        <p class="text-sm">{{ msg.content }}</p>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-1 text-left">{{ msg.timestamp.strftime('%H:%M') if msg.timestamp else '' }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="bg-white border-t border-gray-200 p-4">
+        <form action="/chat/{{ request.view_args['other_user_id'] }}" method="POST" class="max-w-4xl mx-auto flex gap-3">
+            <input type="text" name="content" required autocomplete="off" placeholder="Type your message..." 
+                   class="flex-1 bg-gray-100 text-gray-800 px-5 py-3 rounded-full outline-none focus:ring-2 focus:ring-blue-500 transition">
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold transition shadow-md flex items-center gap-2">
+                Send <span>&#10148;</span>
+            </button>
+        </form>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById("chat-box");
+        chatBox.scrollTop = chatBox.scrollHeight;
+    </script>
+
+</body>
+</html>

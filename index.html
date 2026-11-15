@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collab Growth | Connect. Create. Grow.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+    </style>
+</head>
+<body class="bg-[#f8fafc] text-gray-800 flex flex-col min-h-screen overflow-x-hidden">
+
+    <nav class="glass-nav shadow-sm border-b border-gray-200/60 sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-extrabold text-xl p-2.5 rounded-xl shadow-md">CG</div>
+                    <span class="font-extrabold text-2xl tracking-tight text-gray-900">Collab Growth</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#how-it-works" class="text-gray-600 hover:text-indigo-600 font-semibold transition-colors">How It Works</a>
+                    <a href="#features" class="text-gray-600 hover:text-indigo-600 font-semibold transition-colors">Features</a>
+                    <div class="border-l border-gray-300 h-6 mx-2"></div>
+                    <a href="/login" class="text-gray-700 font-bold hover:text-indigo-600 transition-colors">Log In</a>
+                    <a href="/signup" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2.5 rounded-full font-bold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-1/3 w-96 h-96 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-40 text-center relative z-10">
+            
+            <span class="inline-block bg-indigo-50 text-indigo-600 font-bold tracking-wider uppercase text-xs px-4 py-1.5 rounded-full mb-6 border border-indigo-100">
+                Collab Growth | Connect. Create. Grow
+            </span>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight mb-6 leading-tight">
+                Where Businesses Meet <br class="hidden md:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Top Creators</span>
+            </h1>
+            <p class="mt-6 text-xl text-gray-600 max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
+                The ultimate networking platform connecting innovative brands with talented video editors, photographers, writers, and social media experts.
+            </p>
+            <div class="flex justify-center gap-4 flex-col sm:flex-row">
+                <a href="/signup" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    Begin the journey
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="how-it-works" class="py-24 bg-[#f8fafc] border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">How Collab Growth Works</h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center">
+                    <div class="bg-blue-50 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-3xl font-extrabold text-blue-600 group-hover:scale-110 transition-transform duration-300">1</div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Create a Profile</h3>
+                    <p class="text-gray-600 leading-relaxed font-medium">Sign up in seconds. Creators can list their niche, pricing, and availability. Businesses can set up their company hub.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center">
+                    <div class="bg-indigo-50 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-3xl font-extrabold text-indigo-600 group-hover:scale-110 transition-transform duration-300">2</div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Search & Discover</h3>
+                    <p class="text-gray-600 leading-relaxed font-medium">Businesses use our powerful search engine to filter talent by location, budget, and content type.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center">
+                    <div class="bg-purple-50 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-3xl font-extrabold text-purple-600 group-hover:scale-110 transition-transform duration-300">3</div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Connect & Grow</h3>
+                    <p class="text-gray-600 leading-relaxed font-medium">Reach out directly, discuss project details, and collaborate to create amazing content together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-16 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+            <div>
+                <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                    <div class="bg-gradient-to-tr from-blue-500 to-indigo-500 text-white font-extrabold text-sm p-2 rounded-lg">CG</div>
+                    <span class="font-extrabold text-2xl text-white tracking-tight">Collab Growth</span>
+                </div>
+                <p class="text-sm leading-relaxed font-medium text-gray-500 max-w-xs mx-auto md:mx-0">Empowering the creator economy. Built for modern networking and seamless collaboration.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-lg mb-6">Platform</h4>
+                <ul class="space-y-3 text-sm font-medium">
+                    <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="/login" class="hover:text-white transition-colors">Sign In</a></li>
+                    <li><a href="/signup" class="hover:text-white transition-colors">Create Account</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-lg mb-6">Support</h4>
+                <ul class="space-y-3 text-sm font-medium">
+                    <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-gray-800 text-sm font-medium text-center text-gray-600">
+            &copy; 2026 Collab Growth. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

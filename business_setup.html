@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Company Profile | Collab Growth</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tailwind-offline.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/business_setup.css') }}">
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="h-8 w-auto rounded">
+                <span class="font-bold text-xl text-gray-900">Collab Growth</span>
+            </div>
+            <a href="/dashboard" class="text-gray-600 font-bold hover:text-blue-600 transition">Cancel & Go Back</a>
+        </div>
+    </nav>
+
+    <main class="max-w-2xl mx-auto mt-12 px-6 pb-12">
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 form-container">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">Company Details</h1>
+            <p class="text-gray-500 mb-8">Set up your business profile so creators know who they are working with.</p>
+
+            <form action="/business_profile" method="POST" id="businessForm" class="space-y-6">
+                
+                <div class="input-group">
+                    <label class="block text-gray-700 font-bold mb-2">Company / Brand Name *</label>
+                    <input type="text" name="company_name" id="company_name" required value="{{ profile.company_name if profile else '' }}"
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none custom-input">
+                </div>
+
+                <div class="input-group">
+                    <label class="block text-gray-700 font-bold mb-2">Industry *</label>
+                    <select name="industry" id="industry" required class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none bg-white custom-input">
+                        <option value="" disabled {% if not profile %}selected{% endif %}>Select your industry...</option>
+                        <option value="Tech / Software" {% if profile and profile.industry == 'Tech / Software' %}selected{% endif %}>Tech / Software</option>
+                        <option value="E-commerce / Retail" {% if profile and profile.industry == 'E-commerce / Retail' %}selected{% endif %}>E-commerce / Retail</option>
+                        <option value="Food & Beverage" {% if profile and profile.industry == 'Food & Beverage' %}selected{% endif %}>Food & Beverage</option>
+                        <option value="Fashion & Beauty" {% if profile and profile.industry == 'Fashion & Beauty' %}selected{% endif %}>Fashion & Beauty</option>
+                        <option value="Other" {% if profile and profile.industry == 'Other' %}selected{% endif %}>Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label class="block text-gray-700 font-bold mb-2">Company Website</label>
+                    <input type="url" name="website_link" id="website_link" placeholder="https://yourcompany.com" value="{{ profile.website_link if profile else '' }}"
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none custom-input">
+                </div>
+
+                <div class="input-group">
+                    <label class="block text-gray-700 font-bold mb-2">About the Company *</label>
+                    <textarea name="description" id="description" required rows="4" placeholder="What does your business do? What kind of creators are you looking to hire?"
+                              class="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none resize-none custom-input">{{ profile.description if profile else '' }}</textarea>
+                </div>
+
+                <p id="formError" class="text-red-600 text-sm font-bold hidden"></p>
+
+                <div class="pt-4 border-t border-gray-100">
+                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-blue-700 transition shadow-md submit-btn">
+                        Save Business Profile
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/business_setup.js') }}"></script>
+</body>
+</html>
